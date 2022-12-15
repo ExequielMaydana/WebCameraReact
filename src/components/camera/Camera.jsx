@@ -1,32 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
+import './styles/styleCamera.css'
 
 const Camera = () => {
 
-    const videoRef = useRef(null);
-    const photoRef = useRef(null);
-  
-    const [hasPhoto, setHasPhoto] = useState(false);
-  
+  const videoRef = useRef(null);
+  const photoRef = useRef(null);
 
-    const getVideo = () => {
-     let constraints = { video: true,  
-            facingMode: { exact: "environment" }
-          } ;
-          navigator.mediaDevices
-          .getUserMedia(constraints)
-          .then((stream) => {
-            let video = videoRef.current;
-            video.srcObject = stream;
-            video.play();
-          })
-          .catch((err) => console.log(err));
-      }
+  const [hasPhoto, setHasPhoto] = useState(false);
 
-
-  
-    const asd = () => {
+   // la que va
+   const asd = () => {
       let constraints = { video: {
-        facingMode: "environment"
+        facingMode: "environment",
+        width: 700
       }  
       } ;
       navigator.mediaDevices
@@ -44,9 +30,12 @@ const Camera = () => {
     };
 
 
-  
-    const takePhoto = () => {
-      const width = 414;
+  useEffect(() => {
+      asd();
+  }, [videoRef]);
+
+  const takePhoto = () => {
+      const width = 514;
       const height = width / (16 / 9);
       let video = videoRef.current;
       let photo = photoRef.current;
@@ -65,21 +54,22 @@ const Camera = () => {
       context.clearRect(0, 0, photo.width, photo.height);
       setHasPhoto(false);
     };
-  
-    useEffect(() => {
-        asd();
-    }, [videoRef]);
   return (
-    <div className='App'>
-        <div className="camera">
-        <video ref={videoRef}></video>
-        <button onClick={takePhoto}>Capturar</button>
-      </div>
-      <div className={"result" + (hasPhoto ? "hasPhoto" : "")}>
-        <canvas ref={photoRef}></canvas>
-        <button onClick={closePhoto}>Close</button>
-      </div>
+    <section className='container-takeAPhoto'>
+    <div className='container-camera-canva'>
+
+    <div className="camera">
+    <video ref={videoRef}></video>
+    <button onClick={takePhoto} className="bnt-capturar">Capturar</button>
     </div>
+
+  <div className={"result" + (hasPhoto ? "hasPhoto" : "")}>
+    <canvas ref={photoRef}></canvas>
+    <button onClick={closePhoto} className="bnt-capturar">Sacar otra foto</button>
+  </div>
+
+    </div>
+</section>
   )
 }
 

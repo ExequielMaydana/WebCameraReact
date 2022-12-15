@@ -1,0 +1,49 @@
+.container-takeAPhoto{
+    padding: 1em 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-camera-canva{
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+}
+
+.camera{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .resulthasPhoto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1em;
+  }
+
+  .bnt-capturar{
+    min-width: 100px;
+    background: none;
+    border: 2px solid #F5A22D;
+    color: #00758F;
+    font-weight: bold;
+    font-size: 1em;
+    font-family: GothamRounded-Bold;
+    cursor: pointer;
+  }
