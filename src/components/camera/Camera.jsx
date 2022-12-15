@@ -23,13 +23,10 @@ const Camera = () => {
       }
 
 
-
   
     const asd = () => {
-      let constraints = { video: true,  
-        facingMode: "user"
+      let constraints = { video: true
       } ;
-  
       navigator.mediaDevices
         .getUserMedia(constraints)
         .then(function (mediaStream) {
@@ -43,6 +40,8 @@ const Camera = () => {
           console.log(err.name + ": " + err.message);
         });
     };
+
+
   
     const takePhoto = () => {
       const width = 414;
