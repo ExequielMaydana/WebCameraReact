@@ -24,7 +24,7 @@ const Camera = () => {
     };
   
     const asd = () => {
-      let constraints = { video: true };
+      let constraints = { video: true,  facingMode: { exact: "environment" } };
   
       navigator.mediaDevices
         .getUserMedia(constraints)
