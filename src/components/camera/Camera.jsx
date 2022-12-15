@@ -8,11 +8,13 @@ const Camera = () => {
 
   const [hasPhoto, setHasPhoto] = useState(false);
 
+  const [photo, setPhoto] = useState()
+
    // la que va
    const asd = () => {
       let constraints = { video: {
         facingMode: "environment",
-        width: 700
+        width: 500, height: 400
       }  
       } ;
       navigator.mediaDevices
@@ -35,8 +37,8 @@ const Camera = () => {
   }, [videoRef]);
 
   const takePhoto = () => {
-      const width = 514;
-      const height = width / (16 / 9);
+      const width = 500;
+      const height = 400;
       let video = videoRef.current;
       let photo = photoRef.current;
   
@@ -54,6 +56,8 @@ const Camera = () => {
       context.clearRect(0, 0, photo.width, photo.height);
       setHasPhoto(false);
     };
+
+
   return (
     <section className='container-takeAPhoto'>
     <div className='container-camera-canva'>
