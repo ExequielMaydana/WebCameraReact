@@ -10,9 +10,8 @@ const Camera = () => {
     const getVideo = () => {
       if (navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices
-          .getUserMedia({
-            video: true,
-            facingMode: { exact: "environment" },
+          .getUserMedia({ video: true,  
+            facingMode: "environment"
           })
           .then((stream) => {
             let video = videoRef.current;
@@ -24,7 +23,9 @@ const Camera = () => {
     };
   
     const asd = () => {
-      let constraints = { video: true,  facingMode: { exact: "environment" } };
+      let constraints = { video: true,  
+        facingMode: "environment"
+      } ;
   
       navigator.mediaDevices
         .getUserMedia(constraints)
@@ -62,7 +63,7 @@ const Camera = () => {
     };
   
     useEffect(() => {
-        getVideo();
+        asd();
     }, [videoRef]);
   return (
     <div className='App'>
