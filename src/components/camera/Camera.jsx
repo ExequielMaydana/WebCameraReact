@@ -66,7 +66,7 @@ const Camera = () => {
     };
   
     useEffect(() => {
-        getVideo();
+        asd();
     }, [videoRef]);
   return (
     <div className='App'>
