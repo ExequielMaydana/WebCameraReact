@@ -15,12 +15,16 @@ const Camera = () => {
 
 
   // para detectar desde que dispositivo se esta viendo la aplicacion, IOS, Android, etc.
-  let userAgent = navigator.userAgent || navigator.vendor || window.opera;
-  if (/android/i.test(userAgent)) {
-    setEsAndroid(!esAndroid);
-  } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-    setEsIphone(!esIphone);
+  const esIosAndroid = () => {
+    let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(userAgent)) {
+      setEsAndroid(!esAndroid);
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      setEsIphone(!esIphone);
+    }
   }
+
+  
 
   // funcion que abre la camara
   const getVideo = () => {
@@ -52,8 +56,7 @@ const Camera = () => {
 
   let imageCapture;
   const takePhoto = () => {
-    imageCapture
-      .takePhoto()
+    imageCapture.takePhoto()
       .then((blob) => {
         //convierto lo que me trae el blob a un file, para procesarlo en el useDropzone
         const file = new File([blob], "photofrentedni", {
@@ -89,8 +92,10 @@ const Camera = () => {
 
 
   useEffect(() => {
+    esIosAndroid()
     getVideo();
-  }, [videoRef]);
+  
+  }, []);
   
 
   return (
