@@ -15,19 +15,18 @@ const Camera = () => {
 
 
   // para detectar desde que dispositivo se esta viendo la aplicacion, IOS, Android, etc.
-  const esIosAndroid = () => {
-    let userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    if (/android/i.test(userAgent)) {
-      setEsAndroid(!esAndroid);
-    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      setEsIphone(!esIphone);
-    }
-  }
+  // const esIosAndroid = () => {
+   
+  //   else if () {
+    
+  //   }
+  // }
 
   
 
   // funcion que abre la camara
   const getVideo = () => {
+    let userAgent = navigator.userAgent || navigator.vendor || window.opera;
     let constraints = {
       video: {
         facingMode: "environment",
@@ -35,7 +34,10 @@ const Camera = () => {
         height: 400,
       },
     };
-    navigator.mediaDevices
+
+    if (/android/i.test(userAgent)) {
+      setEsAndroid(!esAndroid);
+      navigator.mediaDevices
       .getUserMedia(constraints)
       .then(function (mediaStream) {
         var video = videoRef.current;
@@ -49,6 +51,9 @@ const Camera = () => {
       .catch(function (err) {
         console.log(err.name + ": " + err.message);
       });
+    }else if(/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream){
+      setEsIphone(!esIphone);
+    }
   };
 
   // probando que me devuelva un file
@@ -91,11 +96,7 @@ const Camera = () => {
   };
 
   useEffect(() => {
-    esIosAndroid()
-  }, [])
-  
-
-  useEffect(() => {
+    // esIosAndroid()
     getVideo();
   }, []);
   
