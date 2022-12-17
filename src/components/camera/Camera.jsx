@@ -16,9 +16,11 @@ const Camera = () => {
 
   // para detectar desde que dispositivo se esta viendo la aplicacion, IOS, Android, etc.
   // const esIosAndroid = () => {
-   
-  //   else if () {
-    
+  //   let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  //   if(/android/i.test(userAgent)){
+  //     setEsIphone(!esAndroid)
+  //   }else if(/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream){
+  //     setHasPhoto(!esIphone)
   //   }
   // }
 
