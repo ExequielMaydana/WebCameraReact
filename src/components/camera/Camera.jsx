@@ -51,8 +51,8 @@ const Camera = () => {
       });
   };
 
-    // probando que me devuelva un file
-    console.log(photoCapture);
+  // probando que me devuelva un file
+  console.log(photoCapture);
 
   let imageCapture;
   const takePhoto = () => {
@@ -90,11 +90,13 @@ const Camera = () => {
     setHasPhoto(false);
   };
 
-
   useEffect(() => {
     esIosAndroid()
-    getVideo();
+  }, [])
   
+
+  useEffect(() => {
+    getVideo();
   }, []);
   
 
