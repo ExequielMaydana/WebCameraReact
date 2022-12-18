@@ -30,9 +30,7 @@ const Camera = () => {
   const getVideo = () => {
     let constraints = {
       video: {
-        facingMode: "environment",
-        width: 500,
-        height: 350,
+        facingMode: "environment"
       },
     };
     navigator.mediaDevices
