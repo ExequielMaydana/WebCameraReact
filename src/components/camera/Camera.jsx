@@ -69,8 +69,8 @@ const Camera = () => {
       .catch((err) => console.log(err));
 
     // esto es para que se muestre la imagen en la etiqueta canva.
-    const width = 500;
-    const height = 350;
+    const width = 450;
+    const height = 300;
     let video = videoRef.current;
     let photo = photoRef.current;
 
