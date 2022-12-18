@@ -31,8 +31,8 @@ const Camera = () => {
     let constraints = {
       video: {
         facingMode: "environment",
-        width: 500,
-        height: 400,
+        width: 600,
+        height: 300,
       },
     };
     navigator.mediaDevices
@@ -70,8 +70,8 @@ const Camera = () => {
       .catch((err) => console.log(err));
 
     // esto es para que se muestre la imagen en la etiqueta canva.
-    const width = 400;
-    const height = 400;
+    const width = 600;
+    const height = 300;
     let video = videoRef.current;
     let photo = photoRef.current;
 
