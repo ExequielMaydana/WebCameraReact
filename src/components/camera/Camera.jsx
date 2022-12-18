@@ -99,7 +99,7 @@ const Camera = () => {
   return (
     <section className="container-takeAPhoto">
       <div className="container-camera-canva">
-          <div className="container-mobile">
+       
 
             <div className="camera">
               <video ref={videoRef}></video>
@@ -114,7 +114,7 @@ const Camera = () => {
                 Sacar otra foto
               </button>
             </div>
-          </div>
+
 
       </div>
     </section>
