@@ -56,7 +56,7 @@ const Camera = () => {
 
   let imageCapture;
   const takePhoto = () => {
-    imageCapture.takePhoto()
+    imageCapture?.takePhoto()
       .then((blob) => {
         //convierto lo que me trae el blob a un file, para procesarlo en el useDropzone
         const file = new File([blob], "photofrentedni", {
