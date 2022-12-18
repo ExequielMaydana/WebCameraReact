@@ -15,20 +15,19 @@ const Camera = () => {
 
 
   // para detectar desde que dispositivo se esta viendo la aplicacion, IOS, Android, etc.
-  // const esIosAndroid = () => {
-  //   let userAgent = navigator.userAgent || navigator.vendor || window.opera;
-  //   if(/android/i.test(userAgent)){
-  //     setEsIphone(!esAndroid)
-  //   }else if(/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream){
-  //     setHasPhoto(!esIphone)
-  //   }
-  // }
+  const esIosAndroid = () => {
+    let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(userAgent)) {
+      setEsAndroid(!esAndroid);
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      setEsIphone(!esIphone);
+    }
+  }
 
   
 
   // funcion que abre la camara
   const getVideo = () => {
-    let userAgent = navigator.userAgent || navigator.vendor || window.opera;
     let constraints = {
       video: {
         facingMode: "environment",
@@ -36,10 +35,7 @@ const Camera = () => {
         height: 400,
       },
     };
-
-    if (/android/i.test(userAgent)) {
-      setEsAndroid(!esAndroid);
-      navigator.mediaDevices
+    navigator.mediaDevices
       .getUserMedia(constraints)
       .then(function (mediaStream) {
         var video = videoRef.current;
@@ -53,9 +49,6 @@ const Camera = () => {
       .catch(function (err) {
         console.log(err.name + ": " + err.message);
       });
-    }else if(/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream){
-      setEsIphone(!esIphone);
-    }
   };
 
   // probando que me devuelva un file
@@ -77,7 +70,7 @@ const Camera = () => {
       .catch((err) => console.log(err));
 
     // esto es para que se muestre la imagen en la etiqueta canva.
-    const width = 500;
+    const width = 400;
     const height = 400;
     let video = videoRef.current;
     let photo = photoRef.current;
@@ -98,8 +91,8 @@ const Camera = () => {
   };
 
   useEffect(() => {
-    // esIosAndroid()
-    getVideo();
+    esIosAndroid()
+    getVideo();  
   }, []);
   
 
