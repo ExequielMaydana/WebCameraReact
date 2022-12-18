@@ -15,14 +15,14 @@ const Camera = () => {
 
 
   // para detectar desde que dispositivo se esta viendo la aplicacion, IOS, Android, etc.
-  const esIosAndroid = () => {
-    let userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    if (/android/i.test(userAgent)) {
-      setEsAndroid(!esAndroid);
-    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      setEsIphone(!esIphone);
-    }
-  }
+  // const esIosAndroid = () => {
+  //   let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  //   if (/android/i.test(userAgent)) {
+  //     setEsAndroid(!esAndroid);
+  //   } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+  //     setEsIphone(!esIphone);
+  //   }
+  // }
 
   
 
@@ -91,7 +91,7 @@ const Camera = () => {
   };
 
   useEffect(() => {
-    esIosAndroid()
+    // esIosAndroid()
     getVideo();  
   }, []);
   
@@ -99,15 +99,8 @@ const Camera = () => {
   return (
     <section className="container-takeAPhoto">
       <div className="container-camera-canva">
-        {esIphone ? (
-          
-          <div className="container-ios">
-                  {/* IOS */}
-            <h1>Soy un Iphone</h1>
-          </div>
-        ) : (
           <div className="container-mobile">
-            {/* Android */}
+
             <div className="camera">
               <video ref={videoRef}></video>
               <button onClick={takePhoto} className="bnt-capturar">
@@ -122,8 +115,7 @@ const Camera = () => {
               </button>
             </div>
           </div>
-        )}
-  
+
       </div>
     </section>
   );
